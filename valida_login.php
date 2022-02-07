@@ -1,31 +1,29 @@
-<?php 
-session_start();
+<?php
+    include_once('includes/conexao.php');
+    session_start();
+    if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']))
+    {
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
 
-include_once ('includes/conexao.php');
+        $sql = "SELECT * FROM usuarios WHERE email = '$email' and senha = '$senha'";
 
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+        $result = $conn->query($sql);
 
-$_SESSION['email'] = $email;
-$_SESSION['senha'] = $senha;
-   
-
-$cmd = $query -> prepare($conexao, "SELECT * FROM usuarios WHERE email = :email AND senha = :senha");
-  $query->BindValue(':email', $email, PDO::PARAM_STR);
-  $query->BindValue(':senha', $senha, PDO::PARAM_STR);
-  $query->execute();
-  $userCont = $query->fetchAll();
-      
-  if($userCont == 0){
-    $response['status'] = '404';
-    $response['message'] = 'Usuario ou Senha não Encontrado!';
-        
-    echo json_encode($response);
-  }else{
-    $response['status'] = '200';
-    $response['message'] = 'Deu certo!';
-    $response['Usuario'] = $userCont;
-        
-    echo json_encode($response);
-  }
-?>
+        if(mysqli_num_rows($result) < 1)
+        {
+            unset($_SESSION['email']);
+            unset($_SESSION['senha']);
+            header('Location: login.php');
+        }
+        else
+        {
+            $_SESSION['email'] = $email;
+            $_SESSION['senha'] = $senha;
+            header('Location: teste.php');
+        }
+    }
+    else
+    {
+        header('Location: login.php');
+    }

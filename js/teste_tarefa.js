@@ -93,7 +93,7 @@ function editar(idTarefa) {
 }
 
 function excluir(idTarefa) {
-    var confirmacao = window.confirm('Tem certeza que deseja excluir? ');
+    var confirmacao = window.confirm('Tem certeza que deseja excluir essa Tarefa? ');
     if (confirmacao) {
         var li = document.getElementById('' + idTarefa + '');
         if (li) {

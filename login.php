@@ -11,27 +11,30 @@
 </head>
 
 <body>
-   <div class="main-login">
-       <div class="left-login">
-           <h1>Faça Login<br>E entre no nosso Site</h1>
-       </div>
-       <div class="right-login">
-           <div class="card-login">
-               <h1>LOGIN</h1>
-               <div class="textfield">
-                   <label for="usuario">Usuario</label>
-                   <input type="text" name="usuario" placeholder="Usuario">
-               </div>
-               <div class="textfield">
-               <label for="senha">Senha</label>
-                   <input type="password" name="senha" placeholder="Senha">
-               </div>
-               <button class="btn-login">Login</button>
+    <form action="valida_login.php" method="POST">
+        <div class="main-login">
+            <div class="left-login">
+                <h1>Faça Login<br>E entre no nosso Site</h1>
+            </div>
+            <div class="right-login">
+                <div class="card-login">
+                    <h1>LOGIN</h1>
+                    <div class="textfield">
+                        <label for="usuario">Usuario</label>
+                        <input type="text" id="email" name="email" placeholder="Usuario">
+                    </div>
+                    <div class="textfield">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" maxlength="5" placeholder="Senha">
+                    </div>
+                    <input type="submit" class="btn-login" onclick="logar()" name="submit" value="Login">
 
-               <p>Ainda não tem uma conta? <a href="cadastro.php">Criar conta</a></p>
-           </div>
-       </div>
-   </div>
+                    <p>Ainda não tem uma conta? <a href="cadastro.php">Criar conta</a></p>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="js/loga.js"></script>
 </body>
 
 </html>

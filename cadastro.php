@@ -18,7 +18,7 @@
             <h1>Cadastre-se em nosso Site</h1>
         </div>
         <div class="right-login">
-            <form method="POST" action="valida_cad.php">
+            <form action="valida_cad.php" method="POST">
                 <div class="card-login">
                     <h1>CADASTRO</h1>
 
@@ -37,7 +37,7 @@
                         <input type="password" id="senha" name="senha" maxlength="5" placeholder="Senha">
                     </div>
 
-                    <button type="submit" name="submit" id="submit" onclick="cadastrar()" class="btn-login">Cadastrar</button>
+                    <input type="submit" name="submit" id="submit" onclick="cadastrar()" class="btn-login" value="Cadastrar">
 
                     <div class="termos">
                         <input type="checkbox" class="checkbox"><label>Li e concordo com os <a href="#">Termos de Uso</a> e com a <a href="#">Política de privacidade</a></label>
